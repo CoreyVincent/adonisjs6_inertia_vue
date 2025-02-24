@@ -3,20 +3,20 @@ import { getDirname } from '@adonisjs/core/helpers'
 import inertia from '@adonisjs/inertia/client'
 import vue from '@vitejs/plugin-vue'
 import adonisjs from '@adonisjs/vite/client'
-// import tailwind from '@tailwindcss/vite'
-import tailwindcss from 'tailwindcss'
+import tailwind from 'tailwindcss'
+// import tailwindcss from '@tailwindcss/vite' //'tailwindcss'
 import autoprefixer from 'autoprefixer'
 
 export default defineConfig({
   css: {
     postcss: {
-      plugins: [tailwindcss(), autoprefixer()],
+      plugins: [tailwind(), autoprefixer()],
     },
   },
   plugins: [
     inertia({ ssr: { enabled: false } }),
     vue(),
-    // tailwind(),
+    // tailwindcss(),
     adonisjs({
       entrypoints: ['inertia/app/app.ts', 'resources/css/landing.css'],
       reload: ['resources/views/**/*.edge'],
